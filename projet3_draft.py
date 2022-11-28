@@ -9,7 +9,6 @@ import requests
 
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
-st.write("Lignes de bus")
 st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus.csv")
 
@@ -33,7 +32,16 @@ df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
 st.write('Caractéristiques ligne')
 df_bus_ligne
 
-
+option_ligne_2 = df_bus['retard'].unique()
+lignes_2 = st.sidebar.multiselect(
+	'retards ?',
+	option_ligne_2, 
+	option_ligne_2[0]
+	)
+# Table 
+df_bus_ligne_2 = df_bus[df_bus['retard'].isin(lignes_2)]
+st.write('Retards')
+df_bus_ligne_2
 
 
 
