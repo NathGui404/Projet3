@@ -34,14 +34,14 @@ st.write('trajet ligne')
 df_bus_ligne
 
 option_ligne_2 = df_bus['retard_a'].unique()
-lignes_2 = st.sidebar.multiselect(
+lignes_2 = st.sidebar.selectbox(
 	'retards ?',
 	option_ligne_2, 
 	option_ligne_2[0]
 	)
 # Table 
 df_bus_ligne_2 = df_bus[df_bus['retard_a'].isin(lignes_2)]
-st.write('Retards')
+st.write('Retards supérieurs à 5 minutes')
 st.map(df_bus_ligne_2[['latitude','longitude']])
 
 
