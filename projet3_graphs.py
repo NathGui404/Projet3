@@ -41,6 +41,6 @@ lignes_2 = st.sidebar.multiselect(
 # Table 
 df_bus_ligne_2 = df_bus[df_bus['retard_a'].isin(lignes_2)]
 st.write('Retards')
-st.map(df_bus_ligne_2['latitude', 'longitude'])
+st.map(df_bus_ligne_2[['latitude','longitude']])
 
 
