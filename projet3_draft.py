@@ -10,7 +10,7 @@ import requests
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
-df_bus = pd.read_csv("df_bus.csv")
+df_bus = pd.read_csv("df_bus_retards.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 st.sidebar.title("Réseau Star :")
