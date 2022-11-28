@@ -13,6 +13,7 @@ st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
+st.sidebar.image('logo_star.png')
 st.sidebar.title("Réseau Star :")
 st.sidebar.write("  2 lignes de métro")
 st.sidebar.write("  Ligne a - lancement Mars 2022")
