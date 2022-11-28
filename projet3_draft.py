@@ -9,9 +9,9 @@ import requests
 
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
-st.write("")
+st.write("Lignes de bus")
 
-df = pd.read_csv("velib.csv")
+df = pd.read_csv("df_bus.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 st.sidebar.title("Réseau Star Key Facts")
@@ -23,9 +23,9 @@ st.sidebar.write("Stations de vélo en libre service : 57")
 st.sidebar.write("Parcs relais : 8")
 
 
-option_velo = st.sidebar.selectbox(
-	    'Quel type de vélo ?',
-	    ('mechanical', 'ebike'))
+option_ligne = st.sidebar.selectbox(
+	    'Quelle ligne ?',
+	    (df_bus['ligne']))
 
 # On peut créer plusieurs "colonnes" pour afficher des éléments côte à côte
 # La liste qui suit contient 2 éléments, il y aura donc 2 colonnes
