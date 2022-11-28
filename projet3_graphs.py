@@ -33,15 +33,15 @@ df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
 st.write('trajet ligne')
 df_bus_ligne
 
-option_ligne_2 = df_bus['retard_a'].unique()
-lignes_2 = st.sidebar.multiselect(
+option_tard = df_bus['retard_a'].unique()
+tard = st.sidebar.multiselect(
 	'retards ?',
-	option_ligne_2, 
-	option_ligne_2[1]
+	option_tard, 
+	option_tard[1]
 	)
 # Table 
-df_bus_ligne_2 = df_bus[df_bus['retard_a'].isin(lignes_2)]
+df_bus_tard = df_bus[df_bus['retard_a'].isin(tard)]
 st.write('Retards supérieurs à 5 minutes')
-st.map(df_bus_ligne_2[['latitude','longitude']])
+st.map(df_bus_tard[['latitude','longitude']])
 
 
