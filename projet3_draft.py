@@ -10,7 +10,7 @@ import requests
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.write("Lignes de bus")
-st.image('https://github.com/NathGui404/Projet3/blob/main/Bus-100x100.png')
+st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
@@ -26,7 +26,6 @@ st.sidebar.write("Parcs relais : 8")
 st.sidebar.write('Quelle ligne ?')
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.multiselect(
-	"Choix des lignes", 
 	option_ligne, 
 	option_ligne[0]
 	)
