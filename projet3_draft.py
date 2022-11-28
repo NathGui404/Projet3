@@ -10,7 +10,7 @@ import requests
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.write("Lignes de bus")
-
+st.image('https://github.com/NathGui404/Projet3/blob/main/Bus-100x100.png')
 df_bus = pd.read_csv("df_bus.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
