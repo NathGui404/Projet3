@@ -23,9 +23,10 @@ st.sidebar.write("Stations de vélo en libre service : 57")
 st.sidebar.write("Parcs relais : 8")
 
 
-st.sidebar.write('Quelle ligne ?')
+
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.multiselect(
+	'Quelle ligne ?',
 	option_ligne, 
 	option_ligne[0]
 	)
