@@ -31,7 +31,7 @@ lignes = st.sidebar.multiselect(
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
 st.write('Retards les plus importants')
-df_bus_ligne[['ligne','destination','nom_arret','heure_extraction.1','retard_arrivee']].sort_values(by='retard_arrivee', ascending=False)
+df_bus_ligne.sort_values(by='retard_arrivee', ascending=False)
 
 option_tard = df_bus['retard_a'].unique()
 tard = st.sidebar.multiselect(
