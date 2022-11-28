@@ -34,10 +34,10 @@ st.write('trajet ligne')
 df_bus_ligne
 
 option_ligne_2 = df_bus['retard_a'].unique()
-lignes_2 = st.sidebar.selectbox(
+lignes_2 = st.sidebar.multiselect(
 	'retards ?',
 	option_ligne_2, 
-	option_ligne_2[0]
+	option_ligne_2[1]
 	)
 # Table 
 df_bus_ligne_2 = df_bus[df_bus['retard_a'].isin(lignes_2)]
