@@ -11,7 +11,7 @@ import requests
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.write("Lignes de bus")
 
-df = pd.read_csv("df_bus.csv")
+df_bus = pd.read_csv("df_bus.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 st.sidebar.title("Réseau Star Key Facts")
@@ -23,21 +23,20 @@ st.sidebar.write("Stations de vélo en libre service : 57")
 st.sidebar.write("Parcs relais : 8")
 
 
-option_ligne = st.sidebar.selectbox(
-	    'Quelle ligne ?',
-	    (df_bus['ligne']))
+st.sidebar.write('Quelle ligne ?')
+option_ligne = df_bus['ligne'].unique()
+lignes = st.sidebar.multiselect(
+	"Choix des lignes", 
+	option_ligne, 
+	option_ligne[0]
+	)
 
-# On peut créer plusieurs "colonnes" pour afficher des éléments côte à côte
-# La liste qui suit contient 2 éléments, il y aura donc 2 colonnes
-# La première colonne a un poids de "2", elle sera donc 2 fois plus large
-col1, col2 = st.columns([2, 1])
+# Table 
+df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
+st.write('Caractéristiques ligne')
+df_bus_ligne
 
-# Les éléments à afficher dans chaque colonne :
-with col1:
-	fig, ax = plt.subplots()
-	ax = sns.boxplot(df[option_velo])
-	st.pyplot(fig)
-with col2:
-	fig, ax = plt.subplots()
-	ax = sns.boxplot(df[option_velo])
-	st.pyplot(fig)
+
+
+
+
