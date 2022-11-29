@@ -15,9 +15,7 @@ df_bus = pd.read_csv("df_bus_retards.csv")
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 st.sidebar.image('logo_star.png')
 st.sidebar.title("Réseau Star :")
-st.sidebar.write("  2 lignes de métro")
-st.sidebar.write("  Ligne a - lancement Mars 2022")
-st.sidebar.write("  Ligne b – lancement Juillet 2022")
+st.sidebar.write("  lignes de métro :2 ")
 st.sidebar.write("  Lignes de bus : 152")
 st.sidebar.write("  Stations de vélo en libre service : 57")
 st.sidebar.write("  Parcs relais : 8")
@@ -38,7 +36,7 @@ option_tard = df_bus['retard_a'].unique()
 tard = st.sidebar.multiselect(
 	'retards ?',
 	option_tard, 
-	option_tard[1]
+	option_tard[0]
 	)
 # Table 
 df_bus_tard = df_bus[df_bus['retard_a'].isin(tard)]
