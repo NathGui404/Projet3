@@ -47,7 +47,7 @@ st.subheader("Retards de bus les plus importants par ligne et arrêt")
 
 st.sidebar.write(option_ligne)
 for i in option_ligne:
-	if option_ligne=i:
+	if option_ligne==i:
 		df_bus_ligne = df_bus[df_bus['ligne']==i]
 		df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 		df_bus['retard_arrivee']=df_bus['retard_arrivee'].apply(convert)
