@@ -23,10 +23,9 @@ with st.sidebar :
 		st.image("reseau rennes.JPG")
 
 option_ligne = df_bus['ligne'].unique()
-lignes = st.sidebar.multiselect(
+lignes = st.sidebar.selectbox(
 	'Quelle ligne ?',
-	option_ligne, 
-	option_ligne[0]
+	option_ligne
 	)
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
