@@ -7,12 +7,15 @@ import plotly.graph_objects as go
 import plotly.express as px
 import requests
 
+def convert(seconds):
+    min, sec = divmod(seconds, 60)
+    hour, min = divmod(min, 60)
+    return "%d:%02d:%02d" % (hour, min, sec)
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
-df_bus['retard_a']=df_bus['retard_arrivee'].apply(retard)
-df_bus['retard_d']=df_bus['retard_depart'].apply(retard)
+df_bus['retard_a']=df_bus['retard_a'].apply(convert)
 
 st.sidebar.image('logo_star.png', width=200)
 with st.sidebar :
