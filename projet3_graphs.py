@@ -12,13 +12,19 @@ st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
 
-# Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
-st.sidebar.image('logo_star.png')
-st.sidebar.title("Réseau Star :")
-st.sidebar.write("  lignes de métro :2 ")
-st.sidebar.write("  Lignes de bus : 152")
-st.sidebar.write("  Stations de vélo en libre service : 57")
-st.sidebar.write("  Parcs relais : 8")
+st.title('Analyse du réseau de transports en commun de la ville de Rennes')
+st.image('Bus-100x100.png')
+
+df_bus = pd.read_csv("df_bus_retards.csv")
+
+with st.sidebar :
+	with st.expander("Réseau Star :"):
+		st.write("lignes de métro : 2")
+		st.write("Lignes de bus : 152")
+		st.write("Stations de vélo en libre service : 57")
+		st.write("Parcs relais : 8")		
+		st.image("reseau rennes.JPG")
+
 
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.multiselect(
