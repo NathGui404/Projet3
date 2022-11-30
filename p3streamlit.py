@@ -13,7 +13,7 @@ st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
-st.sidebar.image('logo_star.png')
+st.sidebar.image('logo_star.png', width=200)
 
 with st.sidebar :
     with st.expander("Réseau Star :"):
@@ -35,7 +35,7 @@ lignes = st.sidebar.multiselect(
 	)
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
-st.write('Retards les plus importants')
+st.subheader("Retards de bus les plus importants par ligne et arrêt")
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
 
