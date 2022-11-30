@@ -23,7 +23,7 @@ with st.sidebar :
 		st.write("Lignes de bus : 152")
 		st.write("Stations de vélo en libre service : 57")
 		st.write("Parcs relais : 8")		
-	with col2 :
+		with col2 :
 		st.image("reseau rennes.JPG")
 		
 option_ligne = df_bus['ligne'].unique()
