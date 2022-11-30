@@ -12,11 +12,7 @@ st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
 
-st.title('Analyse du réseau de transports en commun de la ville de Rennes')
-st.image('Bus-100x100.png')
-
-df_bus = pd.read_csv("df_bus_retards.csv")
-
+st.sidebar.image('logo_star.png', width=200)
 with st.sidebar :
 	with st.expander("Réseau Star :"):
 		st.write("lignes de métro : 2")
@@ -24,7 +20,6 @@ with st.sidebar :
 		st.write("Stations de vélo en libre service : 57")
 		st.write("Parcs relais : 8")		
 		st.image("reseau rennes.JPG")
-
 
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.multiselect(
