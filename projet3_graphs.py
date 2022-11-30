@@ -33,8 +33,7 @@ st.write('Retards les plus importants par ligne de bus et par arrêt')
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
 
-df_bus_tard = df_bus_ligne[df_bus_ligne['retard_a']=='oui']
 st.write('Retards supérieurs à 5 minutes')
-st.map(df_bus_tard[['latitude','longitude']])
+st.map(df_bus_ligne[['latitude','longitude']])
 
 
