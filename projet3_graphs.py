@@ -28,7 +28,7 @@ lignes = st.sidebar.selectbox(
 	option_ligne
 	)
 # Table 
-df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
+df_bus_ligne = df_bus[df_bus['ligne']==lignes]
 st.write('Retards les plus importants')
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
