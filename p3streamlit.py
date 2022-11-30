@@ -14,16 +14,11 @@ def load_data():
 	data = pd.read_csv(bus_data_path)
 	return data
 
-df_bus=load_data(data)
-
+df_bus=load_data()
 
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
-
-
-
-
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 
