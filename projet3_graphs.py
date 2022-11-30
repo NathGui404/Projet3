@@ -31,7 +31,7 @@ lignes = st.sidebar.selectbox(
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne']==lignes]
 st.write('Retards les plus importants par ligne de bus et par arrêt')
-df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','id_course','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
+df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
 
 df_bus_tard = df_bus[(df_bus['ligne']==lignes)&(df_bus['retard_a']=='oui')]
