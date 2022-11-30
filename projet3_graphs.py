@@ -27,16 +27,9 @@ lignes = st.sidebar.selectbox(
 	'Choix ligne de bus ?',
 	option_ligne
 	)
-#test1 deb
-option_course = df_bus['id_course'].unique()
-courses = st.sidebar.selectbox(
-	'Choix course ?',
-	option_course
-	)
 
-#test1 fin
 # Table 
-df_bus_ligne = df_bus[(df_bus['ligne']==lignes) & (df_bus['id_course']==courses)]
+df_bus_ligne = df_bus[df_bus['ligne']==lignes]
 st.write('Retards les plus importants par ligne de bus et par arrêt')
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','id_course','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
