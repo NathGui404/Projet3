@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 import requests
+import streamlit_folium
 from streamlit_folium import st_folium
 import folium
 
