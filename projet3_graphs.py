@@ -24,24 +24,17 @@ with st.sidebar :
 
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.selectbox(
-	'Quelle ligne ?',
+	'Choix ligne de bus ?',
 	option_ligne
 	)
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne']==lignes]
-st.write('Retards les plus importants')
+st.write('Retards les plus importants par ligne de bus et par arrêt')
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
 
-option_tard = df_bus['retard_a'].unique()
-tard = st.sidebar.multiselect(
-	'retards ?',
-	option_tard, 
-	option_tard[0]
-	)
-# Table 
-df_bus_tard = df_bus[df_bus['retard_a'].isin(tard)]
-st.write('Retards supérieurs à 3 minutes')
+df_bus_tard = df_bus_ligne[df_bus_ligne['retard_a']=='oui']
+st.write('Retards supérieurs à 5 minutes')
 st.map(df_bus_tard[['latitude','longitude']])
 
 
