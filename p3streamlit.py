@@ -38,8 +38,8 @@ with st.sidebar :
 option_ligne = df_bus['ligne'].unique()
 lignes = st.sidebar.selectbox(
     'Selectionnez une ligne',
-	option_ligne,
-	option_ligne[0])
+	str(option_ligne),
+	str(option_ligne[0]))
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
