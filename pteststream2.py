@@ -6,6 +6,9 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 import requests
+from streamlit_folium import st_folium
+import folium
+
 
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
