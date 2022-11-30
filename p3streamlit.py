@@ -16,8 +16,6 @@ df_bus = pd.read_csv("df_bus_retards.csv")
 st.sidebar.image('logo_star.png')
 
 with st.sidebar :
-    st.markdown('Réseau Star :')
-
     with st.expander("Réseau Star :"):
         col1,col2=st.columns([2,1]) #on a 2 colonnes, entre crochet on indique le 'poids' de la première colonne puis le poids de la deuxième
         with col1 :
