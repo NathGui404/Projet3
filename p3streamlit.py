@@ -8,7 +8,7 @@ import plotly.express as px
 import requests
 from pathlib import Path
 
-@st.cache
+@st.cache(allow_output_mutation=True)`
 
 #fonction de chargement des données
 def load_data():
