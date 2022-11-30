@@ -6,13 +6,10 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 import requests
-from pathlib import Path
-
-@st.cache(allow_output_mutation=True)
 
 #fonction de chargement des données
 def load_data():
-	bus_data_path = Path() / 'df_bus_retards.csv'
+	bus_data_path = 'df_bus_retards.csv'
 	data = pd.read_csv(bus_data_path)
 	return data
 #fonction de conversion des secondes en heure min secondes
@@ -22,7 +19,7 @@ def convert(seconds):
     return "%d:%02d:%02d" % (hour, min, sec)
 
 df_bus=load_data()
-df_bus['retard_arrivee']=df_bus['retard_arrivee'].apply(convert)
+
 # La sidebar marche. Résumé du réseau et image du réseau
 
 st.sidebar.image('logo_star.png', width=200)
@@ -35,18 +32,17 @@ with st.sidebar :
 		st.write("Parcs relais : 8")		
 		st.image("reseau rennes.JPG")
 		
-option_ligne = df_bus['ligne'].unique()
-np.append(df_bus['ligne'].unique(),'All')
+option_ligne = 'df_bus['ligne'].unique()
+option_ligne.append('All')
 lignes = st.sidebar.selectbox(
     'Selectionnez une ligne',
 	str(option_ligne),
-	str(option_ligne[0]))
+	)
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
 st.subheader("Retards de bus les plus importants par ligne et arrêt")
 
-st.sidebar.write(option_ligne)
 if option_ligne!='All':
 	df_bus_ligne = df_bus[df_bus['ligne']==ligne]
 	df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
