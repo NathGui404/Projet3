@@ -6,12 +6,24 @@ import matplotlib.pyplot as plt
 import plotly.graph_objects as go
 import plotly.express as px
 import requests
+from pathlib import Path
 
 @st.cache
+def load_data():
+	bus_data_path = Path() / 'df_bus_retards.csv'
+	data = pd.read_csv(bus_data_path)
+	return data
+
+df_bus=load_data(data)
+
+
 
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
-df_bus = pd.read_csv("df_bus_retards.csv")
+
+
+
+
 
 # Quasiment tous les éléments streamlit peuvent être affichés dans la "sidebar"
 
