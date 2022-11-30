@@ -23,10 +23,6 @@ def convert(seconds):
 
 df_bus=load_data()
 
-
-st.title('Analyse du réseau de transports en commun de la ville de Rennes')
-st.image('Bus-100x100.png')
-
 # La sidebar marche. Résumé du réseau et image du réseau
 
 st.sidebar.image('logo_star.png', width=200)
@@ -40,26 +36,25 @@ with st.sidebar :
 		st.image("reseau rennes.JPG")
 		
 option_ligne = df_bus['ligne'].unique()
-
 lignes = st.sidebar.selectbox(
     'Selectionnez une ligne',
 	option_ligne,
 	option_ligne[0])
 
+st.title('Analyse du réseau de transports en commun de la ville de Rennes')
+st.image('Bus-100x100.png')
+st.subheader("Retards de bus les plus importants par ligne et arrêt")
+
 st.sidebar.write(option_ligne)
-for i in option_ligne
-if option_ligne=i:
-	df_bus_ligne = df_bus[df_bus['ligne']==i]
-	df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
-	df_bus['retard_arrivee']=df_bus['retard_arrivee'].apply(convert)
-	st.write(df_bus_ligne)
+for i in option_ligne:
+	if option_ligne=i:
+		df_bus_ligne = df_bus[df_bus['ligne']==i]
+		df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
+		df_bus['retard_arrivee']=df_bus['retard_arrivee'].apply(convert)
+		st.write(df_bus_ligne)
 
 
 # Table de toutes les lignes de bus et du retard a chaque arret
-
-
-st.subheader("Retards de bus les plus importants par ligne et arrêt")
-
 
 option_tard = df_bus['retard_a'].unique()
 tard = st.sidebar.multiselect(
