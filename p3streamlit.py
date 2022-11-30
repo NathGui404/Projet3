@@ -48,12 +48,12 @@ lignes = st.sidebar.selectbox(
 
 st.write(option_ligne)
 if option_ligne!='All':
-    	df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
+	df_bus_ligne = df_bus[df_bus['ligne'].isin(lignes)]
 	df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 	df_bus['retard_arrivee']=df_bus['retard_arrivee'].apply(convert)
 	st.write(df_bus_ligne)
 else:
-    	st.write(df_bus_ligne)
+	st.write(df_bus_ligne)
 
 # Table de toutes les lignes de bus et du retard a chaque arret
 
