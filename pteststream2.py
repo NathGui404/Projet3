@@ -11,7 +11,7 @@ import requests
 st.title('Analyse du réseau de transports en commun de la ville de Rennes')
 st.image('Bus-100x100.png')
 df_bus = pd.read_csv("df_bus_retards.csv")
-
+df_bus['retard_a']=
 
 st.sidebar.image('logo_star.png', width=200)
 with st.sidebar :
@@ -27,12 +27,15 @@ lignes = st.sidebar.selectbox(
 	'Choix ligne de bus ?',
 	option_ligne
 	)
+
+# Map
+df_bus_tard = df_bus[(df_bus['ligne']==lignes)&(df_bus['retard_a']=='oui')]
+st.write('Retards supérieurs à 5 minutes')
+st.map(df_bus_tard[['latitude','longitude']])
+
 # Table 
 df_bus_ligne = df_bus[df_bus['ligne']==lignes]
 st.write('Retards les plus importants par ligne de bus et par arrêt')
 df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination','nom_arret','arrivee_theorique','retard_arrivee']].sort_values(by='retard_arrivee',ascending=False)
 df_bus_ligne
 
-df_bus_tard = df_bus[(df_bus['ligne']==lignes)&(df_bus['retard_a']=='oui')]
-st.write('Retards supérieurs à 5 minutes')
-st.map(df_bus_tard[['latitude','longitude']])
