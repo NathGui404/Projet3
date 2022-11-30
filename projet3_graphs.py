@@ -34,7 +34,7 @@ df_bus_ligne=df_bus_ligne[df_bus_ligne['retard_a']=='oui'][['ligne','destination
 df_bus_ligne
 
 df_bus_tard = df_bus[(df_bus['ligne']==lignes)&(df_bus['retard_a']=='oui')]
-st.write('Retards supérieurs à 5 minutes')
+st.write('Retards supérieurs à 3 minutes')
 st.map(df_bus_tard[['latitude','longitude']])
 
 
